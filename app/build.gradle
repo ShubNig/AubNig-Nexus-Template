@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
+    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "mdl.sinlov.android.demo.temp"
+        minSdkVersion ANDROID_MIN_SDK_VERSION as int
+        targetSdkVersion ANDORID_TARGET_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
+    }
+
+    lintOptions {
+//        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.7.22'
+    testCompile "org.robolectric:robolectric:3.3.2"
+    compile 'com.jakewharton:butterknife:8.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.1.0'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile project(':develophelper')
+}
+
+// OutBuildApk_2.0 you can annotation this if network bad!
+// apply from: "https://github.com/sinlov/Gradle_Zoo/raw/master/android-local/OutBuildApk_2.0.gradle"

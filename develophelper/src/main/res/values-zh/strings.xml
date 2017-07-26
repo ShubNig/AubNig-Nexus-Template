@@ -1,0 +1,4 @@
+<resources>
+    <string name="toast_fast_request">请稍后重试!</string>
+    <string name="dialog_fast_request">执行中&#8230;请稍后重试</string>
+</resources>
