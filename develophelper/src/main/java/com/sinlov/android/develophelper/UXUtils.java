@@ -30,6 +30,9 @@ import android.widget.Toast;
  * Created by sinlov on 17/1/17.
  */
 public final class UXUtils {
+    /**
+     * if want debug open this
+     */
     public static boolean DEBUG = false;
     public static boolean isShowDefaultUXMessage = true;
     public static final long DEFAULT_TIME_SHOT = 3000;

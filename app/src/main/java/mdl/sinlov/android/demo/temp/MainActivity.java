@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.sinlov.android.develophelper.ClipboardUtils;
 
-import com.sinlov.android.develophelper.TemplateTestActivity;
+import com.sinlov.android.develophelper.temp.TemplateTestActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

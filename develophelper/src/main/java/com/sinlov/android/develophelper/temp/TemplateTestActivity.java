@@ -1,4 +1,4 @@
-package com.sinlov.android.develophelper;
+package com.sinlov.android.develophelper.temp;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
