@@ -1,12 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
+apply from: rootProject.file("gradle/codeQuality.gradle")
+
 android {
     compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
     buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId "mdl.sinlov.android.demo.temp"
+        applicationId "com.sinlov.android.demo.temp"
         minSdkVersion ANDROID_MIN_SDK_VERSION as int
         targetSdkVersion ANDORID_TARGET_SDK_VERSION as int
         versionCode VERSION_CODE as int
@@ -28,16 +30,27 @@ android {
     }
 }
 
+def powerMockVersion = "1.6.5"
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    // Junit
     testCompile 'junit:junit:4.12'
+    // Mockito
     testCompile 'org.mockito:mockito-core:2.7.22'
-    testCompile "org.robolectric:robolectric:3.3.2"
+    // Robolectric + Support v4
+    testCompile 'org.robolectric:robolectric:3.3.2'
+    testCompile 'org.robolectric:shadows-support-v4:3.3.2'
+    // EasyMock
+    testCompile "org.easymock:easymock:3.4"
+    // PowerMock
+    testCompile "org.powermock:powermock-core:${powerMockVersion}"
+    testCompile "org.powermock:powermock-module-junit4:${powerMockVersion}"
+    // PowerMock + EasyMock extension
+    testCompile "org.powermock:powermock-api-easymock:${powerMockVersion}"
+    // butter knife only for module test!
     compile 'com.jakewharton:butterknife:8.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile project(':develophelper')
 }
-
-// OutBuildApk_2.0 you can annotation this if network bad!
-// apply from: "https://github.com/sinlov/Gradle_Zoo/raw/master/android-local/OutBuildApk_2.0.gradle"

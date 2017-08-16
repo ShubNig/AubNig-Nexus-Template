@@ -68,10 +68,6 @@ edit module `gradle.properties`
 at root project `build.gradle`
 
 ```gradle
-def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == false
-}
-
 ...
 
 allprojects {
@@ -96,7 +92,7 @@ in module `build.gradle`
 
 ```gradle
 dependencies {
-    compile 'mdl.sinlov.android:temp:0.0.1'
+    compile 'com.sinlov.android:plugin:0.0.1'
 }
 ```
 

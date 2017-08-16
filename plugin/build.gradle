@@ -1,10 +1,6 @@
 apply plugin: 'com.android.library'
 // uploadArchives
-apply from: "nexus.gradle"
-
-def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == false
-}
+apply from: rootProject.file("gradle/nexusUpload.gradle")
 
 android {
     compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int

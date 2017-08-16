@@ -5,7 +5,7 @@
 # change this for module
 android_build_modules=
 android_build_modules[0]=plugin
-#android_build_modules[1]=datacontainer
+#android_build_modules[1]=next
 
 # change this for middle or last build job
 android_build_task_middle="generateReleaseSources"

@@ -1,4 +1,4 @@
-package mdl.sinlov.android.demo.temp;
+package com.sinlov.android.demo.temp;
 
 import android.os.Bundle;
 import android.view.View;
