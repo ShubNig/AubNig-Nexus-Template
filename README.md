@@ -10,7 +10,6 @@ Project Runtime:
 |gradle|2.14.1|
 |Android Studio|2.2.3|
 |com.android.tools.build:gradle|2.2.3|
-|minSdkVersion|15|
 |appcompat-v7|25.0.1|
 |compile SDK version|25|
 |build tools version|25.0.3|
