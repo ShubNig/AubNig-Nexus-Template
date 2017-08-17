@@ -20,11 +20,25 @@ buildscript {
 }
 ```
 
-`module build.gradle`
+`module android build.gradle`
 
 ```gradle
 apply from: rootProject.file("gradle/codeQuality.gradle")
+
+...
+android {
+    testOptions.unitTests {
+        all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
+        }
+    }
+}
+...
 ```
+
+> if not setting `includeNoLocationClasses` will not check unitTests!
 
 # code quality
 
@@ -57,5 +71,12 @@ The [Lint](http://developer.android.com/tools/help/lint.html) plugin generates r
 
 The [Jacoco](http://www.eclemma.org/jacoco/) plugin generates coverage reports based off the unit tests.
 
-    $ gradlew jacocoDebugReport
+    $ gradlew module:jacocoDebugReport
 
+## checkstyle coverage
+
+**Generate checkstyle Test Coverage:**
+
+The [Jacoco](http://www.eclemma.org/jacoco/) plugin generates coverage reports based off the unit tests.
+
+    $ gradlew jacocoDebugReport

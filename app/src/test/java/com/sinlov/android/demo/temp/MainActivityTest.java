@@ -43,7 +43,7 @@ public class MainActivityTest extends RoboTemp {
 
         // Create new activity
         this.mainActivity = Robolectric.setupActivity(MainActivity.class);
-        this.activityControlle = Robolectric.buildActivity(MainActivity.class);
+        this.activityControlle = Robolectric.buildActivity(MainActivity.class).create().start().resume().visible();
     }
 
     @Override
@@ -62,9 +62,7 @@ public class MainActivityTest extends RoboTemp {
 
     @Test
     public void testLifeCycleResume() {
-        this.activityControlle.create();
-        this.activityControlle.start();
-        this.activityControlle.resume();
+        this.activityControlle.pause().stop().destroy();
     }
 
     @Test
