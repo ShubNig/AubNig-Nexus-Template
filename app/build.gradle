@@ -52,13 +52,16 @@ dependencies {
     // EasyMock
     testCompile "org.easymock:easymock:3.4"
     // PowerMock
-    testCompile "org.powermock:powermock-core:${powerMockVersion}"
-    testCompile "org.powermock:powermock-module-junit4:${powerMockVersion}"
+    testCompile "org.powermock:powermock-core:" + POWER_MOCK_VERSION
+    testCompile "org.powermock:powermock-module-junit4:" + POWER_MOCK_VERSION
     // PowerMock + EasyMock extension
-    testCompile "org.powermock:powermock-api-easymock:${powerMockVersion}"
+    testCompile "org.powermock:powermock-api-easymock:" + POWER_MOCK_VERSION
     // butter knife only for module test!
     compile 'com.jakewharton:butterknife:8.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
-    compile 'com.android.support:appcompat-v7:25.0.1'
+    // android support
+    compile 'com.android.support:appcompat-v7:' + OPEN_LIB_COM_ANDROID_SUPPORT
     compile project(':develophelper')
+    compile project(':loginui')
 }
+
