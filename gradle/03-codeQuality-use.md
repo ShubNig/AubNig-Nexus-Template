@@ -71,7 +71,8 @@ The [Lint](http://developer.android.com/tools/help/lint.html) plugin generates r
 
 The [Jacoco](http://www.eclemma.org/jacoco/) plugin generates coverage reports based off the unit tests.
 
-    $ gradlew module:jacocoDebugReport
+    $ gradlew jacocoDebugReport
+    $ gradlew [module]:jacocoDebugReport
 
 ## checkstyle coverage
 

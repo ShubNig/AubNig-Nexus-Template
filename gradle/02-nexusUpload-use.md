@@ -129,4 +129,4 @@ or
     $ gradlew :[module]:uploadArchives
 
 
-> if `VERSION_NAME contans SNAPSHOT` this project will archive to snapshots which archive to releases not chants
+> if `VERSION_NAME contains SNAPSHOT` this project will archive to snapshots which archive to releases not chants
