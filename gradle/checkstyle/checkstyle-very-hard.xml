@@ -222,7 +222,7 @@ Severity: MID
         </module>
         -->
 
-        <!-- A check for TODO: comments. Actually it is a generic regular expression matcher on Java comments. To check for other patterns in Java comments, set property format.
+        <!-- A check for TO DO: comments. Actually it is a generic regular expression matcher on Java comments. To check for other patterns in Java comments, set property format.
            检查是否存在TODO（待处理） TODO是javaIDE自动生成的。一般代码写完后要去掉。
          -->
         <module name="TodoComment" />
