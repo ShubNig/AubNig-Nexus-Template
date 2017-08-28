@@ -38,8 +38,6 @@ android {
     }
 }
 
-def powerMockVersion = "1.6.5"
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     // Junit
@@ -62,6 +60,5 @@ dependencies {
     // android support
     compile 'com.android.support:appcompat-v7:' + OPEN_LIB_COM_ANDROID_SUPPORT
     compile project(':develophelper')
-    compile project(':loginui')
 }
 
