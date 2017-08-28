@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
-apply from: rootProject.file("gradle/codeQuality.gradle")
+apply from: rootProject.file("gradle/codeQualityApp.gradle")
 
 android {
     compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
