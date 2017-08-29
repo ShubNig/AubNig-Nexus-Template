@@ -23,7 +23,8 @@ buildscript {
 `module android build.gradle`
 
 ```gradle
-apply from: rootProject.file("gradle/codeQuality.gradle")
+apply from: rootProject.file("gradle/codeQualityApp.gradle")
+// apply from: rootProject.file("gradle/codeQualityLib.gradle")
 
 ...
 android {
@@ -38,7 +39,10 @@ android {
 ...
 ```
 
-> if not setting `includeNoLocationClasses` will not check unitTests!
+- `codeQualityApp.gradle` just use `apply plugin: 'com.android.application'`
+- `codeQualityLib.gradle` just use `apply plugin: 'com.android.library'`
+
+> if not setting `includeNoLocationClasses` will not report unitTests!
 
 # code quality
 
