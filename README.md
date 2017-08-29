@@ -101,6 +101,6 @@ out `*.apk` in `app/build/outApk/`
 
 `just write use of lib`
 
-###License
+### License
 
 ---
