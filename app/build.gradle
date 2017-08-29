@@ -40,6 +40,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    // test start
     // Junit
     testCompile 'junit:junit:4.12'
     // Mockito
@@ -54,6 +56,8 @@ dependencies {
     testCompile "org.powermock:powermock-module-junit4:" + POWER_MOCK_VERSION
     // PowerMock + EasyMock extension
     testCompile "org.powermock:powermock-api-easymock:" + POWER_MOCK_VERSION
+    // test end
+
     // butter knife only for module test!
     compile 'com.jakewharton:butterknife:8.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
