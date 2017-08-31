@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# this script need gradle android hone
+
+# change this for module
+android_build_module="app"
+
+checkEnv(){
+    evn_checker=`which $1`
+  if [ ! -n "evn_checker" ]; then
+    echo "check event [ $1 ] error exit"
+    exit 1
+  else
+    echo -e "Cli [ $1 ] event check success\n-> $1 at Path: ${evn_checker}"
+  fi
+}
+
+
+checkEnv git
+checkEnv java
+checkEnv android
+checkEnv gradle
+
+git status
+git pull
+git branch -v
+
+./gradlew ${android_build_module}:dependencies --refresh-dependencies
