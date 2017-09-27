@@ -78,9 +78,7 @@ checkGradleModule
 if [ ! -x "gradlew" ]; then
     echo "this path gradlew not exce just try to fix!"
     chmod +x gradlew
-else
-    echo "gradlew can not found exit"
-    exit 1
+    checkFuncBack "chmod +x gradlew"
 fi
 
 # if want clean unlock this
