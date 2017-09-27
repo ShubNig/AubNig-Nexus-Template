@@ -7,9 +7,11 @@ android_build_modules=
 android_build_modules[0]=app
 #android_build_modules[1]=module
 
+product_flavors=""
+
 # change this for middle or last build job
-android_build_task_middle="generateReleaseSources"
-android_build_task_last="compileReleaseJavaWithJavac"
+android_build_task_middle="generate${product_flavors}ReleaseSources"
+android_build_task_last="compile${product_flavors}ReleaseJavaWithJavac"
 
 shell_run_path=$(cd `dirname $0`; pwd)
 
