@@ -3,7 +3,7 @@
 # this script need gradle android hone
 
 # change this for module
-android_build_module="app"
+android_build_module="test"
 
 checkEnv(){
     evn_checker=`which $1`

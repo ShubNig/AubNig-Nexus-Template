@@ -8,10 +8,11 @@ android_build_modules[0]=test
 #android_build_modules[1]=module
 
 product_flavors=""
+product_flavors_list="Test Dev"
 
 # change this for middle or last build job
 android_build_task_middle="generate${product_flavors}ReleaseSources"
-android_build_task_last="compile${product_flavors}ReleaseJavaWithJavac"
+android_build_task_last="connected${product_flavors}DebugAndroidTest"
 
 shell_run_path=$(cd `dirname $0`; pwd)
 
@@ -88,6 +89,14 @@ fi
 git status
 git pull
 git branch -v
+
+if [ -n "$1" ];then
+    echo "you are not set product_flavors, like ${product_flavors_list}"
+else
+    product_flavors=$1
+    android_build_task_middle="generate${product_flavors}ReleaseSources"
+    android_build_task_last="connected${product_flavors}DebugAndroidTest"
+fi
 
 # if want clean unlock this
 echo "-> gradle task clean"

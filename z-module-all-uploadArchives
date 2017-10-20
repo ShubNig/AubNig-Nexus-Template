@@ -70,11 +70,15 @@ else
     echo -e "You are setting ANDROID_HOME\nAt Path: ${ANDROID_HOME}"
 fi
 
+checkEnv git
 checkEnv java
 checkEnv android
 checkEnv gradle
 checkGradleModule
 
+git status
+git pull
+git branch -v
 
 # if want clean unlock this
 echo "-> gradle task clean"
