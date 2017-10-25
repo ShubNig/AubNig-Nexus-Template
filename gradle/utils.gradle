@@ -6,10 +6,8 @@
  *
  * You can use checkBasePropertiesConfig at root project for check
  * <pre>
- *  task clean(type: Delete) {
- *      checkBasePropertiesConfig()
- *  }
- * </pre>
+ *  task clean(type: Delete) {*      checkBasePropertiesConfig()
+ *}* </pre>
  */
 
 def checkBasePropertiesConfig() {
@@ -152,6 +150,49 @@ String projectFatherPath() {
     }
 }
 
+def printAllTaskInOut() {
+    gradle.taskGraph.afterTask { task ->
+        try {
+            StringBuffer taskDetails = new StringBuffer()
+            taskDetails << """--------------------------
+name: $task.name
+group: $task.group
+description: $task.description
+task.convention: $task.convention.plugins
+inputs:
+"""
+            task.inputs.files.each { it ->
+                taskDetails << " ${it.absolutePath}\n"
+            }
+            taskDetails << "outputs:\n"
+            task.outputs.files.each { it ->
+                taskDetails << " ${it.absolutePath}\n"
+            }
+
+            taskDetails << "--------------------------"
+            println taskDetails
+        }
+        catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
+}
+
+def printAllTaskDepends() {
+    project.tasks.all {
+        Task t = it
+        String taskName = it.name
+        println("-------- taskName -----------:" + taskName + " :" + it.getPath())
+        it.getTaskDependencies().any {
+            println("-------- taskName ----------- dependsOn -----------------:")
+            it.getDependencies(t).findAll() {
+                println("----------------------------------:" + it.getPath())
+            }
+        }
+
+    }
+}
+
 ext {
     checkBasePropertiesConfig = this.&checkBasePropertiesConfig
     printErrorGradlePropertiesNotSet = this.&printErrorGradlePropertiesNotSet
@@ -165,4 +206,6 @@ ext {
     getGroupSet = this.&getGroupSet
     getProjectRootName = this.&getProjectRootName
     projectFatherPath = this.&projectFatherPath
+    printAllTaskInOut = this.&printAllTaskInOut
+    printAllTaskDepends = this.&printAllTaskDepends
 }
