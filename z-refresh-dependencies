@@ -25,4 +25,11 @@ git status
 git pull
 git branch -v
 
+if [ ! -x "gradlew" ]; then
+    echo "this path gradlew not exec just try to fix!"
+    chmod +x gradlew
+else
+    echo "=> local gradlew can use"
+fi
+
 ./gradlew ${android_build_module}:dependencies --refresh-dependencies

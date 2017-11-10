@@ -1,48 +1,59 @@
 
-[00-utils-use](00-utils-use.md)
+[00-package](00-package.md)
 
-- [utils](00-utils-use.md#utils)
-    - [notes](00-utils-use.md#notes)
-    - [Setting Plugin](00-utils-use.md#setting-plugin)
-- [utils use](00-utils-use.md#utils-use)
-    - [isReleaseBuild](00-utils-use.md#isreleasebuild)
-    - [checkBasePropertiesConfig](00-utils-use.md#checkbasepropertiesconfig)
-
-
-[01-buildScan-use](01-buildScan-use.md)
-
-- [buildScan](01-buildScan-use.md#buildscan)
-    - [notes](01-buildScan-use.md#notes)
-    - [Setting Plugin](01-buildScan-use.md#setting-plugin)
-- [build scan](01-buildScan-use.md#build-scan)
+- [package](00-package.md#package)
+    - [notes](00-package.md#notes)
+    - [config depend](00-package.md#config-depend)
+    - [Setting depend](00-package.md#setting-depend)
+    - [use project center dependencies](00-package.md#use-project-center-dependencies)
+    - [add new dependencies](00-package.md#add-new-dependencies)
 
 
-[02-nexusUpload-use](02-nexusUpload-use.md)
+[01-utils-use](01-utils-use.md)
 
-- [Nexus public utils](02-nexusUpload-use.md#nexus-public-utils)
-    - [notes](02-nexusUpload-use.md#notes)
-    - [Setting Plugin](02-nexusUpload-use.md#setting-plugin)
-- [nexus upload](02-nexusUpload-use.md#nexus-upload)
-
-
-[03-codeQuality-use](03-codeQuality-use.md)
-
-- [code Quality](03-codeQuality-use.md#code-quality)
-    - [notes](03-codeQuality-use.md#notes)
-    - [Setting Plugin](03-codeQuality-use.md#setting-plugin)
-- [code quality](03-codeQuality-use.md#code-quality)
-    - [Lint Reports](03-codeQuality-use.md#lint-reports)
-    - [pmd Reports](03-codeQuality-use.md#pmd-reports)
-    - [findbugs reports](03-codeQuality-use.md#findbugs-reports)
-    - [jacoco coverage](03-codeQuality-use.md#jacoco-coverage)
+- [utils](01-utils-use.md#utils)
+    - [notes](01-utils-use.md#notes)
+    - [Setting Plugin](01-utils-use.md#setting-plugin)
+- [utils use](01-utils-use.md#utils-use)
+    - [isReleaseBuild](01-utils-use.md#isreleasebuild)
+    - [checkBasePropertiesConfig](01-utils-use.md#checkbasepropertiesconfig)
 
 
-[04-sonarqubeAnalysis-use](04-sonarqubeAnalysis-use.md)
+[02-buildScan-use](02-buildScan-use.md)
 
-- [sonarqube Analysis](04-sonarqubeAnalysis-use.md#sonarqube-analysis)
-    - [notes](04-sonarqubeAnalysis-use.md#notes)
-    - [Setting Plugin](04-sonarqubeAnalysis-use.md#setting-plugin)
-- [analysis](04-sonarqubeAnalysis-use.md#analysis)
+- [buildScan](02-buildScan-use.md#buildscan)
+    - [notes](02-buildScan-use.md#notes)
+    - [Setting Plugin](02-buildScan-use.md#setting-plugin)
+- [build scan](02-buildScan-use.md#build-scan)
+
+
+[03-nexusUpload-use](03-nexusUpload-use.md)
+
+- [Nexus public utils](03-nexusUpload-use.md#nexus-public-utils)
+    - [notes](03-nexusUpload-use.md#notes)
+    - [Setting Plugin](03-nexusUpload-use.md#setting-plugin)
+- [nexus upload](03-nexusUpload-use.md#nexus-upload)
+
+
+[04-codeQuality-use](04-codeQuality-use.md)
+
+- [code Quality](04-codeQuality-use.md#code-quality)
+    - [notes](04-codeQuality-use.md#notes)
+    - [Setting Plugin](04-codeQuality-use.md#setting-plugin)
+- [code quality](04-codeQuality-use.md#code-quality)
+    - [Lint Reports](04-codeQuality-use.md#lint-reports)
+    - [pmd Reports](04-codeQuality-use.md#pmd-reports)
+    - [findbugs reports](04-codeQuality-use.md#findbugs-reports)
+    - [jacoco coverage](04-codeQuality-use.md#jacoco-coverage)
+    - [checkstyle coverage](04-codeQuality-use.md#checkstyle-coverage)
+
+
+[05-sonarqubeAnalysis-use](05-sonarqubeAnalysis-use.md)
+
+- [sonarqube Analysis](05-sonarqubeAnalysis-use.md#sonarqube-analysis)
+    - [notes](05-sonarqubeAnalysis-use.md#notes)
+    - [Setting Plugin](05-sonarqubeAnalysis-use.md#setting-plugin)
+- [analysis](05-sonarqubeAnalysis-use.md#analysis)
 
 
 [README](README.md)

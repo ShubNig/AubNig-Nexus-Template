@@ -76,8 +76,16 @@ checkEnv android
 checkEnv gradle
 checkGradleModule
 
+if [ ! -x "gradlew" ]; then
+    echo "this path gradlew not exec just try to fix!"
+    chmod +x gradlew
+else
+    echo "=> local gradlew can use"
+fi
+
 git status
 git pull
+checkFuncBack "git pull"
 git branch -v
 
 # if want clean unlock this
@@ -86,7 +94,8 @@ echo "-> gradle task clean"
 
 for module in ${android_build_modules[@]};
 do
-    echo "-> gradle task ${module}:dependencies --refresh-dependencies"
+    echo "-> gradle task ${module}:dependencies"
+#    echo "-> gradle task ${module}:dependencies --refresh-dependencies"
     ./gradlew ${module}:dependencies --refresh-dependencies
     echo "-> gradle task ${module}:${android_build_task_middle}"
     ./gradlew ${module}:${android_build_task_middle}

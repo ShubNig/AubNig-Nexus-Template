@@ -16,6 +16,24 @@ Project Runtime:
 |target SDK version|15|
 |min SDK version|15|
 
+## Less Runtime
+
+- Android API 23
+- Android Studio 2.2.3
+- appcompat-v7:23.4.0
+- Gradle 2.14.1
+- com.android.tools.build:gradle:2.2.3
+- minSdkVersion 15
+
+test Runtime
+
+```gradle
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.7.22'
+    testCompile "org.robolectric:robolectric:3.3.2"
+    testCompile "org.robolectric:shadows-support-v4:3.3.2"
+```
+
 
 # Last Version Info
 
@@ -101,6 +119,22 @@ out `*.apk` in `app/build/outApk/`
 
 `just write use of lib`
 
-### License
-
 ---
+
+License
+
+<pre>
+Copyright sinlovgmppt@gmail.com 2017
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
