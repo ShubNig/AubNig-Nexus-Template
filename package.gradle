@@ -4,7 +4,7 @@ subprojects {
 
     ext {
         test_depends = [
-                junit                         : 'junit:junit:4.6',
+                junit                         : 'junit:junit:4.12',
                 mockito_core                  : 'org.mockito:mockito-core:2.7.22',
                 robolectric                   : 'org.robolectric:robolectric:3.3.2',
                 robolectric_shadows_support_v4: 'org.robolectric:shadows-support-v4:3.3.2',
