@@ -95,6 +95,13 @@ POM_PACKAGING=aar
 |POM_ARTIFACT_ID|artifact ID|package zoo|
 |POM_PACKAGING|packaging|packaging way aar of jar|
 
+### POM_PACKAGING
+
+|key|for|desc|
+|---|---|---|
+|aar|android compiler lib|out android arr package release|
+|jar|android provided lib|out arr and jar package release use provided with `@jar` in `com.android.application`|
+|eclipse|for old android ADT|out aar, jar, eclipse.zip for full|
 
 In `module build.gradle` edit
 

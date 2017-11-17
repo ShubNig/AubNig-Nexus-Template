@@ -57,7 +57,8 @@ android.applicationVariants.all { variant ->
             '**/Lambda$*.class',
             '**/Lambda.class',
             '**/*Lambda.class',
-            '**/*Lambda*.class'
+            '**/*Lambda*.class',
+            '**/*Manifest*.*',
     ]
 
     /**

@@ -32,6 +32,7 @@
 - [Nexus public utils](03-nexusUpload-use.md#nexus-public-utils)
     - [notes](03-nexusUpload-use.md#notes)
     - [Setting Plugin](03-nexusUpload-use.md#setting-plugin)
+        - [POM_PACKAGING](03-nexusUpload-use.md#pom_packaging)
 - [nexus upload](03-nexusUpload-use.md#nexus-upload)
 
 

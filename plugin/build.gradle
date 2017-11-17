@@ -47,10 +47,12 @@ dependencies {
     //    androidTestCompile android_test_depends.robotium_solo
     // test end
     compile depends.com_android_support_support_v4,
-            depends.com_android_support_appcompat_7
+            depends.com_android_support_appcompat_7,
 //            depends.com_android_support_recyclerview_v7,
 //            depends.com_android_support_cardview_v7,
 //            depends.com_android_support_design,
+            depends.com_android_support_support_annotations
+
     if (isReleaseBuild()) {
         //todo release depends
     } else {

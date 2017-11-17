@@ -19,7 +19,7 @@ buildscript {
 
 > you can import dependencies you want more info set use of utils
 
-see at [preface of gradle for android](preface.md)
+More info see at [preface of gradle for android](preface.md)
 
 ## Use
 

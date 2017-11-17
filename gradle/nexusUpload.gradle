@@ -264,6 +264,21 @@ afterEvaluate { project ->
         from android.sourceSets.main.java.sourceFiles
     }
 
+    task makeReleaseJar(type: Jar, dependsOn: "bundleRelease") {
+        from file('build/intermediates/classes/release')
+        archiveName = "${project.name}.jar"
+        destinationDir = file('build/libs')
+
+        //exclude class
+        exclude "**/**/BuildConfig.class"
+        exclude "**/**/BuildConfig\$*.class"
+        exclude "**/R.class"
+        exclude "**/R\$*.class"
+
+        //include class
+//        include "com/test/**/*.class"
+    }
+
     task androidrReleaseEclipse(type: Copy) {
         from('build/intermediates/bundles/release/')
         exclude 'build/intermediates/bundles/release/aapt'
@@ -288,7 +303,16 @@ afterEvaluate { project ->
         archives androidSourcesJar
         archives androidJavadocsJar
 //        archives androidReleaseEclipseZip
-        "${project.buildDir}/outputs/aar/${project.name}-release.aar"
+        if (getPomPackaging().equals('jar')) {
+            archives makeReleaseJar
+            "${project.buildDir}/outputs/aar/${project.name}-release.aar"
+        } else if (getPomPackaging().equals('eclipse')) {
+            archives makeReleaseJar
+            archives androidReleaseEclipseZip
+            "${project.buildDir}/outputs/aar/${project.name}-release.aar"
+        } else {
+            "${project.buildDir}/outputs/aar/${project.name}-release.aar"
+        }
     }
 
 }

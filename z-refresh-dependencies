@@ -32,4 +32,4 @@ else
     echo "=> local gradlew can use"
 fi
 
-./gradlew ${android_build_module}:dependencies --refresh-dependencies
+./gradlew -q ${android_build_module}:dependencies --refresh-dependencies

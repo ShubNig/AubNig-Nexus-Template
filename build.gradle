@@ -19,6 +19,13 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url LIB_CUSTOM_ANDROID_REPOSITORY_URL }
+        if (isReleaseBuild()) {
+            maven { url REPO_RELEASE_REPOSITORY_URL }
+        } else {
+            maven { url REPO_SNAPSHOT_REPOSITORY_URL }
+        }
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         jcenter()
     }
 }

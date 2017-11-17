@@ -9,4 +9,4 @@ call git branch -v
 
 call gradlew.bat clean
 
-call gradlew.bat :test:dependencies --refresh-dependencies
+call gradlew.bat -q :test:dependencies --refresh-dependencies

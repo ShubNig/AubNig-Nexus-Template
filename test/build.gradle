@@ -68,7 +68,8 @@ dependencies {
 //            depends.com_android_support_cardview_v7,
 //            depends.com_android_support_design,
             depends.butterknife,
+            depends.com_android_support_support_annotations
 
-            project(':develophelper')
+    compile project(':develophelper')
 }
 

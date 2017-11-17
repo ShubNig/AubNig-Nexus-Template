@@ -95,11 +95,43 @@ echo "-> gradle task clean"
 
 for module in ${android_build_modules[@]};
 do
-    echo "-> gradle task ${module}:dependencies --refresh-dependencies"
-    ./gradlew ${module}:dependencies --refresh-dependencies
+#    echo "-> gradle task ${module}:dependencies"
+#    ./gradlew -q ${module}:dependencies
+    echo "-> gradle task ${module}:dependencies --refresh-dependencies --info"
+    ./gradlew ${module}:dependencies --refresh-dependencies --info
     echo "-> gradle task ${module}:${android_build_task_middle}"
     ./gradlew ${module}:${android_build_task_middle}
     echo "-> gradle task ${module}:${android_build_task_last}"
     ./gradlew ${module}:${android_build_task_last}
+    done
+
+# jenkins config first Invoke Gradle script
+echo -e "\nJenkins config \033[;36mInvoke Gradle script\033[0m"
+echo -e "\033[;34mTasks\033[0m"
+echo -e "clean --refresh-dependencies"
+
+# jenkins config Invoke Gradle script
+echo -e "\nJenkins config \033[;36mInvoke Gradle script\033[0m"
+echo -e "\033[;34mTasks\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e "-q :${module}:dependencies"
+    done
+
+# jenkins config Invoke Gradle script
+echo -e "\nJenkins config \033[;36mInvoke Gradle script\033[0m"
+echo -e "\033[;34mTasks\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e "-q :${module}:${android_build_task_middle}"
+    echo -e "-q :${module}:${android_build_task_last}"
+    done
+
+# jenkins config Invoke Gradle script
+echo -e "\nJenkins config \033[;36mInvoke Gradle script\033[0m"
+echo -e "\033[;34mTasks\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e ":${module}:assemble${product_flavors}Release --profile"
     done
 

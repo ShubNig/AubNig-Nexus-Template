@@ -4,15 +4,17 @@
 
 # change this for module
 android_build_modules=
-android_build_modules[0]=test
+android_build_modules[0]=plugin
 #android_build_modules[1]=module
 
 product_flavors=""
-product_flavors_list="Test Dev"
+product_flavors_list="dev test prod"
+build_mode="Release"
+hint_build_mode="release"
 
 # change this for middle or last build job
-android_build_task_middle="generate${product_flavors}ReleaseSources"
-android_build_task_last="connected${product_flavors}DebugAndroidTest"
+android_build_task_middle="generate${product_flavors}${build_mode}Sources"
+android_build_task_last="jacoco${product_flavors}${build_mode}Report"
 
 shell_run_path=$(cd `dirname $0`; pwd)
 
@@ -94,13 +96,13 @@ if [ -n "$1" ];then
     echo "you are not set product_flavors, like ${product_flavors_list}, use default"
 else
     product_flavors=$1
-    android_build_task_middle="generate${product_flavors}ReleaseSources"
-    android_build_task_last="connected${product_flavors}DebugAndroidTest"
+    android_build_task_middle="generate${product_flavors}${build_mode}Sources"
+    android_build_task_last="jacoco${product_flavors}${build_mode}Report"
 fi
 
 # if want clean unlock this
-echo "-> gradle task clean"
-./gradlew clean
+#echo "-> gradle task clean"
+#./gradlew clean
 
 for module in ${android_build_modules[@]};
 do
@@ -113,4 +115,49 @@ do
     echo "-> gradle task ${module}:${android_build_task_last}"
     ./gradlew ${module}:${android_build_task_last}
     done
+
+# jenkins config JUnit first Invoke Gradle script
+echo -e "\nJenkins config \033[;36mInvoke Gradle script\033[0m"
+echo -e "\033[;34mTasks\033[0m"
+echo -e "clean --refresh-dependencies
+generateReleaseSources
+compileReleaseJavaWithJavac"
+
+# jenkins config JUnit test Invoke Gradle script
+echo -e "\nJenkins config \033[;36mInvoke Gradle script\033[0m"
+echo -e "\033[;34mTasks\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e ":${module}:jacoco${build_mode}Report"
+    done
+
+# jenkins config JUnit test result report
+echo -e "\nJenkins config \033[;36mPublish JUnit test result report\033[0m"
+echo -e "\033[;34mTest Report XML\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e "${module}/build/test-results/test${build_mode}UnitTest/${hint_build_mode}/*.xml,"
+    done
+
+# jenkins config Record JaCoco coverage report
+echo -e "\nJenkins config \033[;36mRecord JaCoco coverage report\033[0m"
+
+echo -e "\033[;34mPath to exec files\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e "${module}/build/jacoco/**.exec,"
+    done
+echo -e "\033[;34mPath to class directories\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e "${module}/build/intermediates/classes/${hint_build_mode},"
+    done
+echo -e "\033[;34mPath to source directories\033[0m"
+for module in ${android_build_modules[@]};
+do
+    echo -e "${module}/src/main/java,"
+    done
+
+echo -e "\033[;33mExclusions\033[0m"
+echo -e "**/*Test.class,**/R.class,**/R\$*.class,**/Manifest*.*,android/**/*.*,**/BuildConfig.*,**/*\$ViewBinder*.*,**/*\$ViewInjector*.*,**/Lambda\$*.class,**/Lambda.class,**/*Lambda.class,**/*Lambda*.class,**/\$*.class,**/db/*.class,**/http/*.class,**/net/*.class,**/widget/*.class,**/sync/*.class,**/log/*.class"
 
