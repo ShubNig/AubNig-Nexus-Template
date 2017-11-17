@@ -19,14 +19,19 @@ buildscript {
 
 allprojects {
     repositories {
+        // public java and android repository
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+
+        // for custom android repository
         maven { url LIB_CUSTOM_ANDROID_REPOSITORY_URL }
+
+        // for business repository
         if (isReleaseBuild()) {
             maven { url REPO_RELEASE_REPOSITORY_URL }
         } else {
             maven { url REPO_SNAPSHOT_REPOSITORY_URL }
         }
-//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        jcenter()
     }
 }
 

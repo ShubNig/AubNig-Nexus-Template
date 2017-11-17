@@ -15,10 +15,8 @@ android {
     }
 
     lintOptions {
-//        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
         abortOnError false
+        checkReleaseBuilds false
     }
 
     buildTypes {
@@ -31,13 +29,28 @@ android {
 
 dependencies {
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // test start
+    // Junit
+    testCompile test_depends.junit,
+            // Mockito
+            test_depends.mockito_core,
+            // Robolectric + Support v4
+            test_depends.robolectric,
+            test_depends.robolectric_shadows_support_v4,
+            // EasyMock
+            test_depends.easymock,
+            // PowerMock
+            test_depends.powermock_core,
+            test_depends.powermock_module_junit4,
+            // PowerMock + EasyMock extension
+            test_depends.powermock_api_easymock
+    androidTestCompile android_test_depends.robotium_solo
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile test_depends.junit
+    // test end
+
     compile depends.com_android_support_support_v4,
             depends.com_android_support_appcompat_7
-}
 
-// uploadArchives without javadoc
-//apply from: "https://github.com/sinlov/Gradle_Zoo/raw/master/github/android/github-archives-no-javadoc.gradle"
+}
