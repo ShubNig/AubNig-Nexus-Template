@@ -25,11 +25,14 @@ subprojects {
         depends = [
                 com_android_support_support_annotations: 'com.android.support:support-annotations:25.0.1',
                 com_android_support_support_v4         : 'com.android.support:support-v4:25.0.1',
+                com_android_support_support_core_ui    : 'com.android.support:support-core-ui:25.0.1',
                 com_android_support_appcompat_7        : 'com.android.support:appcompat-v7:25.0.1',
                 com_android_support_recyclerview_v7    : 'com.android.support:recyclerview-v7:25.0.1',
                 com_android_support_cardview_v7        : 'com.android.support:cardview-v7:25.0.1',
                 com_android_support_design             : 'com.android.support:design:25.0.1',
+                com_android_support_multidex           : 'com.android.support:multidex:1.0.1',
                 com_android_constraint_layout          : 'com.android.support.constraint:constraint-layout:1.0.2',
+                butterknife_7                          : 'com.jakewharton:butterknife:7.0.1',
                 butterknife                            : 'com.jakewharton:butterknife:8.1.0',
         ]
 
