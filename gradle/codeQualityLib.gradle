@@ -59,6 +59,8 @@ android.libraryVariants.all { variant ->
             '**/*Lambda.class',
             '**/*Lambda*.class',
             '**/*Manifest*.*',
+            '**/*$.class',
+            '**/*ARouter$*.class',
     ]
 
     /**

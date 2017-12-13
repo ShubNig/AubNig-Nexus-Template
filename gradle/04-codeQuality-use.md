@@ -80,8 +80,8 @@ The [Jacoco](http://www.eclemma.org/jacoco/) plugin generates coverage reports b
 
 ## checkstyle coverage
 
-**Generate checkstyle Test Coverage:**
+**Generate checkstyle:**
 
-The [Jacoco](http://www.eclemma.org/jacoco/) plugin generates coverage reports based off the unit tests.
+The [checkstyle](http://www.puppycrawl.com/dtds/configuration_1_2.dtd) plugin generates coverage reports based off the unit tests.
 
-    $ gradlew jacocoDebugReport
+    $ gradlew checkstyleDebug
