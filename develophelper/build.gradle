@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
-    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
         minSdkVersion ANDROID_MIN_SDK_VERSION as int
@@ -10,7 +9,7 @@ android {
         versionCode VERSION_CODE as int
         versionName VERSION_NAME
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -28,10 +27,10 @@ android {
 }
 
 dependencies {
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    api fileTree(dir: 'libs', include: ['*.jar'])
     // test start
     // Junit
-    testCompile test_depends.junit,
+    testImplementation test_depends.junit,
             // Mockito
             test_depends.mockito_core,
             // Robolectric + Support v4
@@ -44,13 +43,19 @@ dependencies {
             test_depends.powermock_module_junit4,
             // PowerMock + EasyMock extension
             test_depends.powermock_api_easymock
-    androidTestCompile android_test_depends.robotium_solo
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation android_test_depends.robotium_solo
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     // test end
 
-    compile depends.com_android_support_support_v4,
+    compileOnly depends.com_android_support_support_annotations
+    api depends.com_android_support_support_v4,
             depends.com_android_support_appcompat_7
+//            depends.com_android_support_recyclerview_v7,
+//            depends.com_android_support_cardview_v7,
+//            depends.com_android_support_design
+
+    // you can use compileOnly for only compile
 
 }

@@ -1,3 +1,4 @@
 include ':test'
 include ':develophelper'
+include ':plugin'
 //include ':plugin'

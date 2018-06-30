@@ -7,23 +7,23 @@ Project Runtime:
 |title|description|
 |-----|-----------|
 |jdk|1.8.+|
-|gradle|2.14.1|
-|Android Studio|2.2.3|
-|com.android.tools.build:gradle|2.2.3|
+|gradle|4.4.+|
+|Android Studio|3.0.1+|
+|com.android.tools.build:gradle|3.0.1|
 |appcompat-v7|25.0.1|
 |compile SDK version|25|
-|build tools version|25.0.3|
-|target SDK version|15|
-|min SDK version|15|
+|build tools version|26.0.3+|
+|target SDK version|16|
+|min SDK version|16|
 
 ## Less Runtime
 
 - Android API 23
-- Android Studio 2.2.3
-- appcompat-v7:23.4.0
-- Gradle 2.14.1
-- com.android.tools.build:gradle:2.2.3
-- minSdkVersion 15
+- Android Studio 3.0.1
+- appcompat-v7:25.0.1
+- Gradle 4.4.1
+- com.android.tools.build:gradle:3.0.1
+- minSdkVersion 16
 
 test Runtime
 
@@ -91,17 +91,17 @@ allprojects {
     repositories {
         // do not use same URL with job module!
         if (isReleaseBuild()) {
-            maven { url RELEASE_REPOSITORY_URL }
+            maven { url REPO_RELEASE_REPOSITORY_URL }
         } else {
-            maven { url SNAPSHOT_REPOSITORY_URL }
+            maven { url REPO_SNAPSHOT_REPOSITORY_URL }
         }
         jcenter()
     }
 }
 ```
 
-- RELEASE_REPOSITORY_URL set `Job module`at `${ProjectRoot}/gradle.properties`
-- SNAPSHOT_REPOSITORY_URL set `Job module`at `${ProjectRoot}/gradle.properties`
+- REPO_RELEASE_REPOSITORY_URL set `Job module`at `${ProjectRoot}/gradle.properties`
+- REPO_SNAPSHOT_REPOSITORY_URL set `Job module`at `${ProjectRoot}/gradle.properties`
 
 you can set like `file:///Users/user/Downloads/mvn-repo/release/` when use local build
 
@@ -114,6 +114,16 @@ dependencies {
 ```
 
 out `*.apk` in `app/build/outApk/`
+
+# build
+
+see as
+
+```sh
+make help
+```
+
+or `z-*.sh` file can help build
 
 # Usage
 

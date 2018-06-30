@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 /**
@@ -38,6 +39,7 @@ public abstract class TemplateTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         TAG = TemplateTestActivity.class.getSimpleName().replace("Activity", "");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         processLogic(savedInstanceState);
     }
 

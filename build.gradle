@@ -6,9 +6,10 @@ apply from: rootProject.file("gradle/utils.gradle")
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.1"
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1"
@@ -19,12 +20,8 @@ buildscript {
 
 allprojects {
     repositories {
-        // public java and android repository
-//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        jcenter()
-
         // for custom android repository
-        maven { url LIB_CUSTOM_ANDROID_REPOSITORY_URL }
+//        maven { url LIB_CUSTOM_ANDROID_REPOSITORY_URL }
 
         // for business repository
         if (isReleaseBuild()) {
@@ -32,6 +29,10 @@ allprojects {
         } else {
             maven { url REPO_SNAPSHOT_REPOSITORY_URL }
         }
+        // public java and android repository
+//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+        google()
     }
 }
 

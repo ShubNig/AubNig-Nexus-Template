@@ -5,20 +5,14 @@ package com.sinlov.android.plugin;
  */
 public final class Plugin {
 
-    private volatile static Plugin instance;
-
     public static Plugin getInstance() {
-        if (null == Plugin.instance) {
-            synchronized (Plugin.class) {
-                if (Plugin.instance == null) {
-                    Plugin.instance = new Plugin();
-                }
-            }
-        }
-        return Plugin.instance;
+        return Instance.instance;
     }
 
     private Plugin() {
+    }
 
+    private static class Instance {
+        private static final Plugin instance = new Plugin();
     }
 }
