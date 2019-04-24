@@ -30,7 +30,7 @@ dependencies {
     // compile fileTree(dir: 'libs', include: ['*.jar'])
     // test start
     // Junit
-    testCompile test_depends.junit,
+    testImplementation test_depends.junit,
             // Mockito
             test_depends.mockito_core,
             // Robolectric + Support v4

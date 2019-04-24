@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-apply from: rootProject.file("gradle/codeQualityApp.gradle")
+//apply from: rootProject.file("gradle/codeQualityApp.gradle")
 
 android {
     compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
@@ -32,13 +32,13 @@ android {
         }
     }
 
-    testOptions.unitTests {
-        all {
-            jacoco {
-                includeNoLocationClasses = true
-            }
-        }
-    }
+//    testOptions.unitTests {
+//        all {
+//            jacoco {
+//                includeNoLocationClasses = true
+//            }
+//        }
+//    }
 
     buildTypes {
         debug {
